@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import OpenSSL
 import ssl, socket
+import sys
 from datetime import datetime
 
 cert=ssl.get_server_certificate(( sys.argv[1], 443))

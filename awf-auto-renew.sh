@@ -9,7 +9,7 @@ prerequisites() {
 }
 
 prerequisites
-(./should_renew.py)
+(./should_renew.py $DOMAIN)
 renew=$?
 rm -rf should_renew.py
 

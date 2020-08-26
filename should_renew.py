@@ -4,7 +4,7 @@ import ssl, socket
 import sys
 from datetime import datetime
 
-cert=ssl.get_server_certificate(( sys.argv[1], 443))
+cert=ssl.get_server_certificate(( sys.argv[1], sys.argv[2]))
 x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
 
 expiry_date = datetime.strptime( x509.get_notAfter() , '%Y%m%d%H%M%SZ')

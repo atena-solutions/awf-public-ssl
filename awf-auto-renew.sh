@@ -1,6 +1,7 @@
 #!/bin/bash
 DOMAIN=$1
 PORT=$2
+MAIL_ADDRESS=$3
 
 prerequisites() {
 	wget https://raw.githubusercontent.com/amostech/awf-public-ssl/master/should_renew.py
@@ -25,9 +26,9 @@ then
 	rm -rf sslrenew.log
 	expiry_date=$(echo | openssl s_client -showcerts -servername $DOMAIN -connect $DOMAIN:$PORT 2>/dev/null | openssl x509 -inform pem -noout -enddate | cut -d "=" -f 2)
 
-	echo "To: suporte@atenasolutions.com
+	echo "To: $MAIL_RECIPIENT
 		Content-Type: text/html; charset=UTF-8
-	    From:suporte@atenasolutions.com
+	    From: $MAIL_RECIPIENT
 	    Subject: [SSL] - Renewing certificates for $DOMAIN @ $hostname " `date` >> sslrenew.log
 
 	echo '<html><body>' >> sslrenew.log
@@ -39,7 +40,7 @@ then
 	echo `New Expiry date in CERTIFICATE: $expiry_date` >> sslrenew.log
 	echo "</body></html>" >> sslrenew.log
 
-	cat sslrenew.log | mail -s "[SSL] - Renewing certificates for $DOMAIN @ $hostname `date`" suporte@atenasolutions.com
+	cat sslrenew.log | mail -s "[SSL] - Renewing certificates for $DOMAIN @ $hostname `date`" $MAIL_RECIPIENT
 else
 	echo "All good for now... Nothing to do. Won't renew."
 	exit 0

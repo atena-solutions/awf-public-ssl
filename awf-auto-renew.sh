@@ -18,8 +18,6 @@ rm -rf should_renew.py
 if [ "$renew" -eq "1" ]
 then
 	certbot certonly -n -d $DOMAIN
-	cp /etc/letsencrypt/live/$DOMAIN/fullchain.pem public.crt
-	cp /etc/letsencrypt/live/$DOMAIN/privkey.pem private.key
 
 	NOW=$(date +"%d%m%Y%H%M%S")
 

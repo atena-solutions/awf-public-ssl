@@ -11,7 +11,7 @@ prerequisites() {
 }
 
 prerequisites
-(./should_renew.py $DOMAIN)
+(./should_renew.py $DOMAIN $PORT)
 renew=$?
 rm -rf should_renew.py
 

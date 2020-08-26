@@ -1,7 +1,7 @@
 #!/bin/bash
 DOMAIN=$1
 PORT=$2
-MAIL_ADDRESS=$3
+MAIL_RECIPIENT=$3
 
 prerequisites() {
 	wget https://raw.githubusercontent.com/amostech/awf-public-ssl/master/should_renew.py

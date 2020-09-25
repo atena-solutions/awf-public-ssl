@@ -6,7 +6,7 @@ MAIL_RECIPIENT=$3
 prerequisites() {
 	wget https://raw.githubusercontent.com/amostech/awf-public-ssl/master/should_renew.py
 	chmod u+x should_renew.py
-	apt-get install python-pip
+	apt-get install -ypython-pip
 	pip install pyopenssl
 }
 
@@ -17,7 +17,7 @@ rm -rf should_renew.py
 
 if [ "$renew" -eq "1" ]
 then
-	certbot certonly -n -d $DOMAIN
+	certbot certonly --standalone -n -d $DOMAIN
 
 	NOW=$(date +"%d%m%Y%H%M%S")
 

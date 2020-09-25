@@ -6,7 +6,7 @@ MAIL_RECIPIENT=$3
 prerequisites() {
 	wget https://raw.githubusercontent.com/amostech/awf-public-ssl/master/should_renew.py
 	chmod u+x should_renew.py
-	apt-get install -ypython-pip
+	apt-get install -y python-pip
 	pip install pyopenssl
 }
 

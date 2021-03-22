@@ -40,6 +40,6 @@ then
 
 	cat sslrenew.log | mail -s "[SSL] - Renewing certificates for $DOMAIN @ $hostname `date`" $MAIL_RECIPIENT
 else
-	echo "All good for now... Nothing to do. Won't renew."
+	echo "All good for now... Nothing to do. Won't renew!"
 	exit 0
 fi

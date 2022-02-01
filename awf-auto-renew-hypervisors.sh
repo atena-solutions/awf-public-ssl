@@ -8,6 +8,7 @@ prerequisites() {
 	chmod u+x should_renew.py
 	apt-get install -y python-pip
 	pip install pyopenssl
+	pip install pyOpenSSL --upgrade
 }
 
 prerequisites

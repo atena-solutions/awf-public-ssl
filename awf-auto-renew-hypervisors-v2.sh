@@ -7,8 +7,8 @@ prerequisites() {
 	wget https://raw.githubusercontent.com/amostech/awf-public-ssl/master/should_renew.py
 	chmod u+x should_renew.py
 	apt-get install -y python-pip3
-	pip3 install pyopenssl
-	pip3 install pyOpenSSL --upgrade
+	pip install pyopenssl
+	pip install pyOpenSSL --upgrade
 }
 
 prerequisites
